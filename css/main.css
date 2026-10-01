@@ -1,0 +1,22 @@
+#bodyContentLibrary{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to bottom, #141414, #53CAE4);
+}
+
+.navbar{
+    margin: 20px 40px;
+    background-color: #0f0f0f;
+    border-radius: 45px;
+    border-color: #8a2be2;
+    box-shadow: 0 0 8px rgba(138, 43, 226, 0.8);
+}
+
+.logo img{
+    max-height: 30px;
+    width: auto;
+}
+
+.container-fluid{
+    padding: 0px 20px;
+}

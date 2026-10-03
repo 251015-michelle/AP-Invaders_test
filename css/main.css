@@ -29,6 +29,11 @@
     color: #8a2be2;
 }
 
+.nav-link:hover {
+    color: #53CAE4;
+    transition: color 0.2s ease-in-out;
+}
+
 .fa-magnifying-glass{
     color: #8a2be2;
 }

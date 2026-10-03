@@ -39,6 +39,7 @@
     margin-top: -3px;
     margin-bottom: -3px;
     width: 270px;
+    color: #6d1db8;
 }
 
 .searchBox::placeholder{
@@ -51,8 +52,15 @@
     margin-top: -3px;
     margin-bottom: -3px;
     width: 270px;
+    color: #2e92a9;
+    box-shadow: 0 0 8px rgba(83, 202, 228, 0.8);
 }
 
 .searchBox:focus::placeholder{
     color: #2e92a9;
+}
+
+form:focus-within .fa-magnifying-glass {
+    color: #53CAE4;
+    transition: color 0.2s ease-in-out;
 }

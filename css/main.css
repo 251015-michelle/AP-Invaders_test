@@ -69,3 +69,17 @@ form:focus-within .fa-magnifying-glass {
     color: #53CAE4;
     transition: color 0.2s ease-in-out;
 }
+
+.fa-bars{
+    color: #8a2be2;
+}
+
+.fa-bars:hover {
+    color: #53CAE4;
+}
+
+
+
+
+
+

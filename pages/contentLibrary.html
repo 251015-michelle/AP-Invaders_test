@@ -21,7 +21,7 @@
                 <img src="../assets/img/PopFlix_logo_primary_whiteTagline.png" alt="popFlixLogo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                <i class="fa-solid fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
@@ -46,6 +46,49 @@
             </div>
         </div>
     </nav>
+
+    <section class="contLibFilterButtons">
+        <button class="contLibFilterButton" type="button">All Movies</button>
+        <button class="contLibFilterButton" type="button">Genres</button>
+        <button class="contLibFilterButton" type="button">Release Year</button>
+        <button class="contLibFilterButton" type="button">Sort By</button>
+
+
+
+
+
+        <select id="contLibSortBy">
+            <option value="az">A-Z</option>
+            <option value="newFirst">Newest First</option>
+            <option value="oldFirst">Oldest First</option>
+            <option value="mostPopular">Most Popular</option>
+        </select>
+        <button onclick="getValue();">Sort By</button>
+
+
+
+
+
+
+        <!-- Dropdown Menu -->
+        <label for="category-select">Filter by category:</label>
+        <select id="category-select">
+            <option value="all">All</option>
+            <option value="fruit">Fruit</option>
+            <option value="vegetable">Vegetable</option>
+        </select>
+
+
+
+    </section>
+
+
+
+
+
+
+
+
 
 
 

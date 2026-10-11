@@ -78,8 +78,33 @@ form:focus-within .fa-magnifying-glass {
     color: #53CAE4;
 }
 
+.contLibFilterButton{
+    background-color: #8a2be2;
+    color: #F8F8F8;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.contLibFilterButton:hover{
+    background-color: #53CAE4;
+}
 
 
 
 
+
+
+/* Keeps poster layouts matching perfectly */
+.card-img-top {
+    object-fit: cover;
+    aspect-ratio: 2 / 3;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
 

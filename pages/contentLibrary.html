@@ -7,7 +7,7 @@
     <meta name="keywords" content="template, initial setup, html, css, links, futureUse">
     <meta name="author" content="Michelle van Vuuren 251015">
 
-    <title>HTML Template</title>
+    <title>AP-Invaders Test</title>
 
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -47,40 +47,91 @@
         </div>
     </nav>
 
-    <section class="contLibFilterButtons">
-        <button class="contLibFilterButton" type="button">All Movies</button>
-        <button class="contLibFilterButton" type="button">Genres</button>
-        <button class="contLibFilterButton" type="button">Release Year</button>
-        <button class="contLibFilterButton" type="button">Sort By</button>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-3 p-3">
+                <button class="contLibFilterButton w-100" type="button" data-target="allMoviesSection">ALL MOVIES</button>
+            </div>
+            <div class="col-12 col-md-3 p-3">
+                <button class="contLibFilterButton w-100" type="button" data-target="genresSection">GENRES</button>
+            </div>
+            <div class="col-12 col-md-3 p-3">
+                <button class="contLibFilterButton w-100" type="button" data-target="releaseDateSection">RELEASE DATE</button>
+            </div>
+            <div class="col-12 col-md-3 p-3">
+                <button class="contLibFilterButton w-100" type="button" data-target="sortBySection">SORT BY</button>
+            </div>
+        </div>
+    </div>
+        
+    <div class="contLibMovies mx-4 my-4">
+            <div id="movieGridContainer" class="row g-4"></div>
+    </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="contLibMovies">
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div id="allMoviesSection" class="filter-section">
+                        <h3>All Movies Layout</h3>
+                        <p>This could be a standard grid of all movie posters.</p>
+                    </div>
+                    <div id="genresSection" class="filter-section d-none">
+                        <h3>Genres Layout</h3>
+                        <p>This could be a list of category bubbles (Action, Comedy, Drama).</p>
+                    </div>
+                    <div id="releaseDateSection" class="filter-section d-none">
+                        <h3>Release Year Layout</h3>
+                        <p>This could be a timeline or a dropdown menu sorted by decade.</p>
+                    </div>
+                    <div id="sortBySection" class="filter-section d-none">
+                        <h3>Sort By Layout</h3>
+                        <p>This could be a timeline or a dropdown menu sorted by decade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    
 
 
 
 
 
-        <select id="contLibSortBy">
+
+
+
+<!--      <select id="contLibSortBy">
             <option value="az">A-Z</option>
             <option value="newFirst">Newest First</option>
             <option value="oldFirst">Oldest First</option>
             <option value="mostPopular">Most Popular</option>
         </select>
-        <button onclick="getValue();">Sort By</button>
-
-
-
-
+        <button onclick="getValue();">Sort By</button> -->  
 
 
         <!-- Dropdown Menu -->
-        <label for="category-select">Filter by category:</label>
+ <!--        <label for="category-select">Filter by category:</label>
         <select id="category-select">
             <option value="all">All</option>
             <option value="fruit">Fruit</option>
             <option value="vegetable">Vegetable</option>
-        </select>
+        </select> 
+-->  
 
 
-
-    </section>
+    
 
 
 
@@ -96,6 +147,8 @@
     <script src="https://kit.fontawesome.com/eac5ca7781.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script src="../js/script.js"></script>
 
 </body>
 </html>

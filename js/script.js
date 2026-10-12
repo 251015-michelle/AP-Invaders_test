@@ -1,5 +1,5 @@
 // 1. Mock Data simulating your future API response
-const mockMovies = [
+const contLibMovies = [
     { title: "Movie One", image: "https://placeholder.com" },
     { title: "Movie Two", image: "https://placeholder.com" },
     { title: "Movie Three", image: "https://placeholder.com" },
@@ -20,8 +20,8 @@ document.querySelectorAll('.contLibFilterButton').forEach(button => {
         // Clear old section contents before drawing the new view
         container.innerHTML = '';
 
-        if (targetView === "allMoviesSection" || targetView === "sortBySection") {
-            renderMovieGrid(mockMovies);
+        if (targetView === "allMoviesSection") {
+            renderMovieGrid(contLibMovies);
         } else if (targetView === "genresSection") {
             renderGenres();
         } else if (targetView === "releaseDateSection") {
@@ -34,7 +34,7 @@ document.querySelectorAll('.contLibFilterButton').forEach(button => {
 function renderMovieGrid(movies) {
     movies.forEach(movie => {
         const cardHtml = `
-            <div class="col-12 col-sm-6 col-md-3 col-lg-2">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-2">
                 <div class="card bg-dark text-white border-0 h-100 shadow">
                     <img src="${movie.image}" class="card-img-top rounded" alt="${movie.title}">
                 </div>
@@ -73,4 +73,4 @@ function renderYears() {
 }
 
 // Automatically load the default "All Movies" view on startup
-renderMovieGrid(mockMovies);
+renderMovieGrid(contLibMovies);

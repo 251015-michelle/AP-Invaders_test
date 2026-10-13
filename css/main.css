@@ -1,5 +1,5 @@
 #bodyContentLibrary{
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background: linear-gradient(to bottom, #141414, #53CAE4);
 }
@@ -89,7 +89,8 @@ form:focus-within .fa-magnifying-glass {
     margin-bottom: 12px;
 }
 
-.contLibFilterButton:hover{
+.contLibFilterButton:hover,
+.contLibFilterButton.active{
     background-color: #53CAE4;
 }
 
@@ -108,3 +109,42 @@ form:focus-within .fa-magnifying-glass {
     cursor: pointer;
 }
 
+
+
+/* Genres filter layout carousel */
+/* Horizontal carousel container */
+.movieCarousel {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+/* Hide scrollbar in Chrome and Safari */
+.movieCarousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual movie posters */
+.movieCarouselItem {
+    flex: 0 0 calc((100% - 6rem - 3rem) / 6);
+    scroll-snap-align: start;
+}
+
+/* Movie poster images */
+.movieCarouselItem img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Mobile layout */
+@media (max-width: 767px) {
+    .movieCarouselItem {
+        flex: 0 0 65%;
+    }
+}

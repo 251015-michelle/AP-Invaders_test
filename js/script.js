@@ -95,7 +95,7 @@ class MediaItem {
 const options = {
 	method: 'GET',
 	headers: {
-		'x-rapidapi-key': 'e442447084mshaef834d90434e05p1bc45fjsn892d1a7e195a',
+		'x-rapidapi-key': 'a1d7a9357bmsh5a45f4a1368e12fp17474fjsn43a1b2c1f0ba',
 		'x-rapidapi-host': 'imdb236.p.rapidapi.com',
 		'Content-Type': 'application/json'
         }
@@ -126,9 +126,6 @@ const options = {
 })();
 
 //API end
-
-
-
 
 
 

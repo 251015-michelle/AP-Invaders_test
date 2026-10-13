@@ -10,6 +10,10 @@ const contLibMovies = [
     {image: "../assets/img/Movie_placeholder.png" },
     {image: "../assets/img/Movie_placeholder.png" },
     {image: "../assets/img/Movie_placeholder.png" },
+    {image: "../assets/img/Movie_placeholder.png" },
+    {image: "../assets/img/Movie_placeholder.png" },
+    {image: "../assets/img/Movie_placeholder.png" },
+    {image: "../assets/img/Movie_placeholder.png" },
 ];
 
 const container = document.getElementById('movieGridContainer');
@@ -56,138 +60,105 @@ function renderAllMovies(movies) {
     });
 }
 
-function renderGenres() {
+const genres = [
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Crime",
+    "Documentary",
+    "Drama",
+    "Fantasy",
+    "Horror",
+    "Musical",
+    "Romance",
+    "Sci-Fi",
+    "Thriller"
+];
 
-    const genreHtml = `
+const decades = [
+    "2020s",
+    "2010s",
+    "2000s",
+    "1990s",
+    "1980s"
+];
+
+const contentRatings = [
+    "G",
+    "PG",
+    "PG-13",
+    "R",
+    "NC-17"
+];
+
+function createCarousel(title, id) {
+    return `
         <div class="genreTitle">
-
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3>Action</h3>
-
+                <h4 class="genreTitle">${title}</h4>
                 <div>
-                    <button class="btn btn-outline-light btn-sm"
+                    <button class="btn btn-sm carouselArrow"
                             type="button"
                             data-scroll="prev"
-                            data-carousel="actionCarousel">
+                            data-carousel="${id}">
                         &#10094;
                     </button>
 
-                    <button class="btn btn-outline-light btn-sm"
+                    <button class="btn btn-sm carouselArrow"
                             type="button"
                             data-scroll="next"
-                            data-carousel="actionCarousel">
+                            data-carousel="${id}">
                         &#10095;
                     </button>
                 </div>
             </div>
 
-            <div id="actionCarousel" class="movieCarousel">
-
-                <div class="movieCarouselItem">
-                    <img src="../assets/img/Movie_placeholder.png" alt="Movie 1">
-                </div>
-
-                <div class="movieCarouselItem">
-                    <img src="../assets/img/Movie_placeholder.png" alt="Movie 2">
-                </div>
-
-                <div class="movieCarouselItem">
-                    <img src="../assets/img/Movie_placeholder.png" alt="Movie 3">
-                </div>
-
-                <div class="movieCarouselItem">
-                    <img src="../assets/img/Movie_placeholder.png" alt="Movie 4">
-                </div>
-
-                <div class="movieCarouselItem">
-                    <img src="../assets/img/Movie_placeholder.png" alt="Movie 5">
-                </div>
-
-                <div class="movieCarouselItem">
-                    <img src="../assets/img/Movie_placeholder.png" alt="Movie 5">
-                </div>
-
-                <div class="movieCarouselItem">
-                    <img src="../assets/img/Movie_placeholder.png" alt="Movie 5">
-                </div>
-
-                <div class="movieCarouselItem">
-                    <img src="../assets/img/Movie_placeholder.png" alt="Movie 5">
-                </div>
-
-                <div class="movieCarouselItem">
-                    <img src="../assets/img/Movie_placeholder.png" alt="Movie 5">
-                </div>
-
+            <div id="${id}" class="movieCarousel">
+                ${Array(9).fill().map(() => `
+                    <div class="movieCarouselItem">
+                        <img src="../assets/img/Movie_placeholder.png"
+                             alt="Movie poster">
+                    </div>
+                `).join("")}
             </div>
         </div>
     `;
-
-    container.insertAdjacentHTML('beforeend', genreHtml);
 }
-            
-            
-            
-    //         <div class="genreTitle">
-    //             <h3>Adventure</h3>
-    //             <p>insert carousel here</p>
-    //         </div>
-    //         <div class="genreTitle">
-    //             <h3>Comedy</h3>
-    //             <p>insert carousel here</p>
-    //         </div>
-    //         <div class="genreTitle">
-    //             <h3>Crime</h3>
-    //             <p>insert carousel here</p>
-    //         </div>
-    //         <div class="genreTitle">
-    //             <h3>Documentary</h3>
-    //             <p>insert carousel here</p>
-    //         </div>
-    //         <div class="genreTitle">
-    //             <h3>Drama</h3>
-    //             <p>insert carousel here</p>
-    //         </div>
-    //         <div class="genreTitle">
-    //             <h3>Fantasy</h3>
-    //             <p>insert carousel here</p>
-    //         </div>
-    //         <div class="genreTitle">
-    //             <h3>Horror</h3>
-    //             <p>insert carousel here</p>
-    //         </div>
-    //         <div class="genreTitle">
-    //             <h3>Musical</h3>
-    //             <p>insert carousel here</p>
-    //         </div>
-    //         <div class="genreTitle">
-    //             <h3>Romance</h3>
-    //             <p>insert carousel here</p>
-    //         </div>
-    //         <div class="genreTitle">
-    //             <h3>Sci-Fi</h3>
-    //             <p>insert carousel here</p>
-    //         </div>
-    //         <div class="genreTitle">
-    //             <h3>Thriller</h3>
-    //             <p>insert carousel here</p>
-    //         </div>
-    //     `;
-    //     container.insertAdjacentHTML('beforeend', genreHtml);
-    // }
 
+function renderGenres() {
+    container.innerHTML = genres.map(genre =>
+        createCarousel(genre, `${genre}Carousel`)
+    ).join("");
 
-function renderYears() {
-    const decades = ["2020s", "2010s", "2000s", "90s", "80s"];
-    decades.forEach(decade => {
-        const yearHtml = `
-            <div class="col-12 mb-2">
-                <div class="bg-dark p-3 rounded text-white border-start border-4 border-primary">
-                    <h5>${decade} Releases</h5>
-                </div>
-            </div>
-        `;
-        container.insertAdjacentHTML('beforeend', yearHtml);
+    setupCarouselArrows();
+}
+
+function renderReleaseDate() {
+    container.innerHTML = decades.map(decade =>
+        createCarousel(decade, `${decade}Carousel`)
+    ).join("");
+
+    setupCarouselArrows();
+}
+
+function renderContentRating() {
+    container.innerHTML = contentRatings.map(rating =>
+        createCarousel(rating, `${rating.replace(/[^a-zA-Z0-9]/g, "")}Carousel`)
+    ).join("");
+
+    setupCarouselArrows();
+}
+
+function setupCarouselArrows() {
+    document.querySelectorAll("[data-scroll]").forEach(btn => {
+        btn.onclick = () => {
+            const carousel = document.getElementById(btn.dataset.carousel);
+
+            carousel.scrollBy({
+                left: btn.dataset.scroll === "next" ? carousel.clientWidth : -carousel.clientWidth,
+                behavior: "smooth"
+            });
+        };
     });
 }
 
@@ -197,109 +168,4 @@ renderAllMovies(contLibMovies);
 document.querySelector(
     '.contLibFilterButton[data-target="allMoviesSection"]'
 ).classList.add('active');
-
-
-
-
-
-//API start
-// class MediaItem {
-//     constructor(_title, _type, _url, _image) {
-//         this.title = _title;
-//         this.type = _type;
-//         this.url = _url;
-//         this.image = _image;
-//     }
-// }
-
-// (async function() {
-//   const url = 'https://imdb236.p.rapidapi.com/api/imdb/top250-movies';
-// const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		'x-rapidapi-key': 'a1d7a9357bmsh5a45f4a1368e12fp17474fjsn43a1b2c1f0ba',
-// 		'x-rapidapi-host': 'imdb236.p.rapidapi.com',
-// 		'Content-Type': 'application/json'
-//         }
-//     };
-
-//     let response = await fetch(url, options);
-//     let data = await response.json();
-
-//     console.log("Fetched data:", data);
-
-//     if (!data || !Array.isArray(data) || data.length === 0) {
-//         console.error("Data is empty or not an array");
-//         return;
-//     }
-
-//     let title = data[0].primaryTitle;
-//     let type = data[0].type;
-//     let itemUrl = data[0].url;
-//     let image = data[0].primaryImage;
-
-//     let mediaItem = new MediaItem(title, type, itemUrl, image);
-
-//     document.getElementById('title').innerHTML = mediaItem.title;
-//     document.getElementById('content').innerHTML = 
-//         mediaItem.type + "<br>" + mediaItem.url + "<br><img src='" + mediaItem.image + "'>";
-
-//     console.log(mediaItem);
-// })();
-
-//API end
-
-
-
-
-
-
-
-//class code API
-// class Movie{
-//     constructor(_title, _rating, _link, _image){
-//         this.title = _title;
-//         this.rating = _rating;
-//         this.link = _link;
-//         this.image = _image;
-//     }
-// }
-
-// //header - gets info from the API
-// !async function(){
-// const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
-// const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		'x-rapidapi-key': 'a1d7a9357bmsh5a45f4a1368e12fp17474fjsn43a1b2c1f0ba',//authorisation key
-// 		'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com',
-// 		// 'Content-Type': 'application/json'
-// 	}
-// };
-
-// //fetch request - it check with the url if the authentication key is valid and if it can connect to the api
-// //LW this is like a universal code that can be used for any API
-// let data = await fetch(url, options)
-//             .then((response)=> response.json())
-//             .then((result)=> {return result})
-//             .catch((error)=> console.error(error));
-
-// console.log(data);
-
-// //this will be different
-// console.log(data[4].title); //data.movies[] ... waar "title" kom is wat jy kry met die console log wat bo hierdie een is
-
-// let title = data[0].title;
-// let rating = data[0].rating;
-// let link = data[0].imdb_link;
-// let image = data[0].image;
-
-// let newMovie = new Movie(title, rating, link, image);
-
-// document.getElementById('title').innerHTML = newMovie.title;
-// document.getElementById('content').innerHTML = newMovie.rating + "<br>" + newMovie.link + "<br>" + "<img src='" + newMovie.image + "'>";
-
-// console.log(newMovie);
-
-// }(); //an async function cant be called so we have to put (); after the functions closing }
 

@@ -169,3 +169,45 @@ document.querySelector(
     '.contLibFilterButton[data-target="allMoviesSection"]'
 ).classList.add('active');
 
+
+
+
+//API code that Talya gave
+class Movie{
+  constructor(_title, _rating, _link, _image){
+    this.title = _title;
+    this.rating = _rating;
+    this.link = _link;
+    this.image = _image;
+  }
+}
+
+!async function(){
+
+const options = {
+  method: 'GET',
+  headers: {accept: 'application/json',  Authorization: 'Bearer  eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNDM2YjBmZDlhNjJiZTI2MDUxMTI2MDA2NmM0ZWIzYiIsIm5iZiI6MTc5MjEzODE4NC4xNTUsInN1YiI6IjZhZDFkYmM4ZGI0YmYxMmI2MmIzZTc5ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mLj37yAOQSPUr6bmuhkc_T1XO0z1fGPEkcOrl6fizTc'}
+};
+
+ let data = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+            .then(res => res.json())
+            .then(result => {return result})
+            .catch(err => console.error(err));
+
+  console.log(data);
+
+  console.log(data.results[0].title);
+
+  let title = data[0].title;
+  let rating = data[0].rating;
+  let link = data[0].imdb_link;
+  let image = data[0].image;
+
+  let newMovie = new Movie(title, rating, link, image);
+
+  document.getElementById('title').innerHTML = newMovie.title;
+  document.getElementById('content').innerHTML = newMovie.rating + "<br>" + newMovie.link + "<br>" + "<img src='" + newMovie.image + "'>";
+
+  console.log(newMovie);
+
+}();
